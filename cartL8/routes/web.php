@@ -30,7 +30,6 @@ Route::get('/contactus', function () {
 });
 
 
-
 Route::post('/insertCategory/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('addCategory');
 
 Route::get('/showCategory', [App\Http\Controllers\CategoryController::class, 'show'])->name('showCategory');
@@ -50,7 +49,32 @@ Route::post('/updateProduct', [App\Http\Controllers\ProductController::class, 'u
 
 Route::get('/deleteProduct/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('deleteProduct');
 
+Route::post('/searchProduct', [App\Http\Controllers\ProductController::class, 'search'])->name('searchProduct');
 
+Route::get('/clientProduct', [App\Http\Controllers\ProductController::class, 'clientShow'])->name('clientProduct');
+
+Route::get('/product_detail/{id}', [App\Http\Controllers\ProductController::class, 'showProductDetail'])->name('product.detail');
+//productdetail.blade.php?id=11
+
+Route::post('/addToCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart'); 
+// when user click on add to cart in product detail, id and quantity add to cart
+
+Route::get('/showmyCart', [App\Http\Controllers\CartController::class, 'showMyCart'])->name('show.myCart');
+//user view all items added to cart
+
+Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'deleteCart'])->name('deleteCart');
+
+
+Route::post('/createorder', [App\Http\Controllers\OrderController::class, 'add'])->name('create.order');
+
+Route::get('/myOrder', [App\Http\Controllers\OrderController::class, 'show'])->name('my.order');
+//checkout page
+
+// route for processing payment
+Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithpaypal'])->name('paypal');
+
+// route for check status of the payment
+Route::get('/status', [App\Http\Controllers\PaymentController::class, 'getPaymentStatus'])->name('status');
 
 Auth::routes();
 
