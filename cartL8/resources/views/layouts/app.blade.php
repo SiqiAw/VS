@@ -32,10 +32,11 @@
                 <!-- search form -->
                 <form action="{{ route('searchProduct') }}" method="post">
                      @csrf
-                    <input  type="text" name="searchProduct" id="searchProduct">
+                    <input type="text" name="searchProduct" id="searchProduct">
                     <button class="btn btn-info" type="submit">Search</button>
-                </form> 
-
+                    
+                </form>
+                
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->

@@ -51,6 +51,10 @@ Route::get('/deleteProduct/{id}', [App\Http\Controllers\ProductController::class
 
 Route::post('/searchProduct', [App\Http\Controllers\ProductController::class, 'search'])->name('searchProduct');
 
+Route::get('/search',[App\Http\Controllers\ProductController::class, 'index'])->name('search');
+
+Route::get('/autocomplete',[App\Http\Controllers\ProductController::class, 'autocomplete'])->name('autocomplete');
+
 Route::get('/clientProduct', [App\Http\Controllers\ProductController::class, 'clientShow'])->name('clientProduct');
 
 Route::get('/product_detail/{id}', [App\Http\Controllers\ProductController::class, 'showProductDetail'])->name('product.detail');
@@ -75,6 +79,8 @@ Route::post('/paypal', [App\Http\Controllers\PaymentController::class, 'payWithp
 
 // route for check status of the payment
 Route::get('/status', [App\Http\Controllers\PaymentController::class, 'getPaymentStatus'])->name('status');
+
+Route::get('/pdfReport', [App\Http\Controllers\PDFController::class, 'pdfReport'])->name('pdfReport');
 
 Auth::routes();
 

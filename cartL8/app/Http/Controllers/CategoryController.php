@@ -9,6 +9,12 @@ use App\Models\Category;   //step 1 link model (laravel 8 format)
 class CategoryController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
+    
     public function store(){    //step 2 
         $r=request(); //step 3 get data from HTML
         $addCategory=Category::create([    //step 3 bind data

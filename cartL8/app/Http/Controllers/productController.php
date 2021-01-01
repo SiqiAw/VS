@@ -13,6 +13,25 @@ Use Session;
 class productController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
+    
+    public function index()
+    {
+        return view('search');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = Product::select("name")
+                ->where("name","LIKE", '%'.$request->get('query').'%')
+                ->get();
+        return response()->json($data);
+    }
+
     public function create(){
         return view('insertProduct') ->with('categories',Category::all());;
     }
@@ -40,7 +59,7 @@ class productController extends Controller
     }
 
     public function show(){
-        $products=Product::paginate(2);
+        $products=Product::paginate(10);
        
         return view('showProduct')->with('products',$products);
     }
@@ -57,7 +76,7 @@ class productController extends Controller
         //select * from products where id='$id'
         
         return view('editProduct')->with('products',$products)
-                                ->with('categories',Category::all());
+                                  ->with('categories',Category::all());
     }
 
     public function delete($id){

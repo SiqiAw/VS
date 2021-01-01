@@ -12,12 +12,12 @@
 		        <thead>
 		        <tr class="thead-dark">
 		            <th>ID</th>
-                    	    <th>Image</th>
+                    <th>Image</th>
 		            <th>Name</th>
-                    	    <th>Category</th>
+                    <th>Category</th>
 		            <th>Quantity</th>
 		            <th>Price</th>
-                    	    <th>Action</th>
+                    <th>Action</th>
 		        </tr>
 		    </thead>
 		        <tbody>	
@@ -42,6 +42,10 @@
 				
 		        </tbody>
 		    </table>
+
+		<div class="text-center">
+			<a href="{{ route('pdfReport') }}" class="btn btn-info">Download Product List</a>
+        </div>
 		
 		<div class="text-center">
 			{{ $products->links() }}
