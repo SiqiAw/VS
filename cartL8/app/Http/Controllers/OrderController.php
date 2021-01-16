@@ -40,7 +40,7 @@ class OrderController extends Controller
         }
         
         Session::flash('success',"Order succesful!");        
-        Return redirect()->route('my.order'); //redirect to payment
+        Return redirect()->route('clientProduct'); //redirect to payment
         
     }
 
