@@ -6,20 +6,20 @@
         </div>       
 @endif     
 
-<div class="container">
+	<div class="container">
 	    <div class="row">
 		    <table class="table table-hover table-striped">
 		        <thead>
-		        <tr class="thead-dark">
-		            <th>ID</th>
-                    <th>Image</th>
-		            <th>Name</th>
-                    <th>Category</th>
-		            <th>Quantity</th>
-		            <th>Price</th>
-                    <th>Action</th>
-		        </tr>
-		    </thead>
+					<tr class="thead-dark">
+						<th>ID</th>
+						<th>Image</th>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Action</th>
+					</tr>
+		    	</thead>
 		        <tbody>	
                 @foreach($products as $product)
 			<tr>
@@ -43,15 +43,17 @@
 		        </tbody>
 		    </table>
 
-		<div class="text-center">
-			<a href="{{ route('pdfReport') }}" class="btn btn-info">Download Product List</a>
-        </div>
-		
-		<div class="text-center">
-			{{ $products->links() }}
-        </div>
+		</div>
 
-	</div>
+			<div class="text-center">
+				<a href="{{ route('pdfReport') }}" class="btn btn-info" style="float:left;">Download Product List</a>
+
+				<div class="text-center" style="float:right;">
+					{{ $products->links() }}
+				</div>
+			</div>
+			
+			
     </div>
 
 @endsection

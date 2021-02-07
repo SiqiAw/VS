@@ -41,7 +41,7 @@ class productController extends Controller
         $r=request(); //step 3 get data from HTML
         $image=$r->file('product-image');   //step to upload image get the file input
         $image->move('images',$image->getClientOriginalName());   //images is the location                
-        $imageName=$image->getClientOriginalName(); 
+        $imageName=$image->getClientOriginalName();
 
         $addCategory=Product::create([    //step 3 bind data
             'id'=>$r->ID, //add on 
@@ -59,7 +59,7 @@ class productController extends Controller
     }
 
     public function show(){
-        $products=Product::paginate(10);
+        $products=Product::paginate(3);
        
         return view('showProduct')->with('products',$products);
     }

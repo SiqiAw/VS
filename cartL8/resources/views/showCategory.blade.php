@@ -48,7 +48,6 @@
                         <td>Action</td>
                     </tr>
                         
-                    
                     @foreach($categories as $category)
                     <tr>
                         <td>{{$category->id}}</td>
